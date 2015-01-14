@@ -2,6 +2,8 @@
 import os
 import sys
 
+from countries import NoDbTestRunner
+
 try: 
     import pymysql 
     pymysql.install_as_MySQLdb() 

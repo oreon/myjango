@@ -22,7 +22,7 @@ class Country(models.Model):
     name = models.CharField(db_column='Name', max_length=52)  # Field name made lowercase.
     continent = models.CharField(db_column='Continent', max_length=13)  # Field name made lowercase.
     region = models.CharField(db_column='Region', max_length=26)  # Field name made lowercase.
-    surfacearea = models.FloatField(db_column='SurfaceArea')  # Field name made lowercase.
+    #surfacearea = models.FloatField(db_column='SurfaceArea')  # Field name made lowercase.
     indepyear = models.IntegerField(db_column='IndepYear', blank=True, null=True)  # Field name made lowercase.
     population = models.IntegerField(db_column='Population')  # Field name made lowercase.
     lifeexpectancy = models.FloatField(db_column='LifeExpectancy', blank=True, null=True)  # Field name made lowercase.
@@ -33,9 +33,13 @@ class Country(models.Model):
     headofstate = models.CharField(db_column='HeadOfState', max_length=60, blank=True)  # Field name made lowercase.
     capital = models.IntegerField(db_column='Capital', blank=True, null=True)  # Field name made lowercase.
     code2 = models.CharField(db_column='Code2', max_length=2)  # Field name made lowercase.
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.code, self.name)
+        
 
     class Meta:
-        #managed = False
+        managed = False
         db_table = 'country'
 
 
@@ -48,3 +52,7 @@ class Countrylanguage(models.Model):
     class Meta:
         #managed = False
         db_table = 'countrylanguage'
+        
+
+
+
