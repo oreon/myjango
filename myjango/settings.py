@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'countries',
+    'crispy_forms'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,11 +50,14 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 )
 
 ROOT_URLCONF = 'myjango.urls'
 
 WSGI_APPLICATION = 'myjango.wsgi.application'
+
+CRISPY_TEMPLATE_PACK='bootstrap'
 
 
 # Database

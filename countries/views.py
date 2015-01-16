@@ -1,8 +1,23 @@
 from django.contrib.auth.models import User, Group
 from django.shortcuts import render
-from rest_framework import viewsets
+from django.views.generic.base import TemplateView
+from rest_framework import viewsets, generics
 
-from countries.serializers import UserSerializer, GroupSerializer
+from countries.models import Job
+from countries.serializers import UserSerializer, GroupSerializer, JobSerializer
+
+from .forms import JobForm
+
+
+class JobList(generics.ListCreateAPIView):
+    queryset = Job.objects.all()
+    serializer_class = JobSerializer
+
+
+class JobDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Job.objects.all()
+    serializer_class = JobSerializer
+
 
 
 # Create your views here.
@@ -20,3 +35,13 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    
+    
+
+class JobFormView(TemplateView):
+    template_name = "new.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(JobFormView, self).get_context_data(**kwargs)
+        context.update(JobForm=JobForm())
+        return context
