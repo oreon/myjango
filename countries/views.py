@@ -39,7 +39,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     
 
 class JobFormView(TemplateView):
-    template_name = "new.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super(JobFormView, self).get_context_data(**kwargs)

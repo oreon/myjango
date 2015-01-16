@@ -46,7 +46,7 @@ function ($scope, Restangular, CbgenRestangular, $q) {
 
 app.factory('CbgenRestangular', function (Restangular) {
         return Restangular.withConfig(function (RestangularConfigurer) {
-            RestangularConfigurer.setBaseUrl('/api/v1');
+            RestangularConfigurer.setBaseUrl('/');
         });
     })
 
